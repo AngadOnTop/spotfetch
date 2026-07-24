@@ -1,12 +1,17 @@
 #include <iostream>
 
-#include "../include/renderer.hpp"
+#include "renderer.hpp"
 
 void render_dashboard(const SpotifyStats& stats) {
     std::cout << "SPOTFETCH\n";
     std::cout << "User: " << stats.username << '\n';
 
-    std::cout << "\nNow playing:\n";
+    if (stats.current_track.is_playing) {
+        std::cout << "\n▶ Now Playing:\n";
+    } else {
+        std::cout << "\n⏸ Paused:\n";
+    }
+
     std::cout << stats.current_track.name
               << " by "
               << stats.current_track.artist

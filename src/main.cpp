@@ -1,40 +1,23 @@
+#include "http_client.hpp"
+#include "mock_data.hpp"
 #include "renderer.hpp"
+#include <nlohmann/json.hpp>
+
+#include <iostream>
+#include <string>
 
 int main() {
-    SpotifyStats stats;
-    stats.username = "Angad";
-
-    Track track1{
-        "FEIN",
-        "Travis Scott",
-        67,
-        0,
-        0
-    };
-
-    Track track2{
-        "Nights Like This",
-        "The Kid LAROI",
-        54,
-        0,
-        0
-    };
-
-    Track track3{
-        "Timeless",
-        "The Weeknd",
-        49,
-        92,
-        245
-    };
-
-    stats.top_tracks.push_back(track1);
-    stats.top_tracks.push_back(track2);
-    stats.top_tracks.push_back(track3);
-
-    stats.current_track = track3;
-
-    render_dashboard(stats);
+    std::string response = http_get("https://postman-echo.com/get?project=spotfetch");
+    
+    try {
+        nlohmann::json data = nlohmann::json::parse(response);
+    
+        std::string project = data.at("args").at("project");
+        std::cout << project << '\n';
+    }
+    catch (const nlohmann::json::exception& error) {
+        std::cerr << "JSON error: " << error.what() << '\n';
+    }
 
     return 0;
 }

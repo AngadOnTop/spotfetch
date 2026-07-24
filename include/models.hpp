@@ -10,6 +10,8 @@ struct Track {
 
     int progress_seconds;
     int duration_seconds;
+    
+    bool is_playing;
 };
 
 struct SpotifyStats {

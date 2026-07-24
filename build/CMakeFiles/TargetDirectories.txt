@@ -1,0 +1,3 @@
+/Users/angaddhaliwal/Projects/spotfetch/build/CMakeFiles/spotfetch.dir
+/Users/angaddhaliwal/Projects/spotfetch/build/CMakeFiles/edit_cache.dir
+/Users/angaddhaliwal/Projects/spotfetch/build/CMakeFiles/rebuild_cache.dir
