@@ -18,9 +18,37 @@
 
 namespace {
 
+constexpr const char* version = "0.1.0";
+
+const std::string redirect_uri =
+    "http://127.0.0.1:8888/callback";
+
+void print_help() {
+    std::cout
+        << "Spotfetch - Spotify stats in your terminal\n\n"
+        << "Usage:\n"
+        << "  spotfetch             Launch the dashboard\n"
+        << "  spotfetch login       Sign in with Spotify\n"
+        << "  spotfetch logout      Remove the saved login\n"
+        << "  spotfetch --version   Show the version\n"
+        << "  spotfetch --help      Show this help message\n";
+}
+
+std::string get_client_id() {
+    const char* environment_value =
+        std::getenv("SPOTIFY_CLIENT_ID");
+
+    if (environment_value == nullptr) {
+        throw std::runtime_error(
+            "SPOTIFY_CLIENT_ID is not set"
+        );
+    }
+
+    return environment_value;
+}
+
 SpotifyTokenResponse perform_browser_login(
-    const std::string& client_id,
-    const std::string& redirect_uri
+    const std::string& client_id
 ) {
     const std::string verifier =
         generate_code_verifier();
@@ -71,14 +99,51 @@ SpotifyTokenResponse perform_browser_login(
         }
     );
 
-    std::cout << "Spotify login saved\n";
-
     return tokens;
 }
 
-std::chrono::steady_clock::time_point calculate_refresh_time(
-    int expires_in
+SpotifyTokenResponse restore_or_create_login(
+    const std::string& client_id
 ) {
+    const std::optional<StoredAuth> stored_auth =
+        load_stored_auth();
+
+    if (!stored_auth.has_value()) {
+        return perform_browser_login(client_id);
+    }
+
+    try {
+        std::cout << "Restoring Spotify login...\n";
+
+        SpotifyTokenResponse tokens =
+            refresh_access_token(
+                client_id,
+                stored_auth->refresh_token
+            );
+
+        save_stored_auth(
+            StoredAuth{
+                tokens.refresh_token
+            }
+        );
+
+        std::cout << "Spotify login restored\n";
+
+        return tokens;
+    } catch (const std::exception& error) {
+        std::cerr
+            << "Saved login could not be restored: "
+            << error.what()
+            << '\n';
+
+        clear_stored_auth();
+
+        return perform_browser_login(client_id);
+    }
+}
+
+std::chrono::steady_clock::time_point
+calculate_refresh_time(int expires_in) {
     const int refresh_after =
         std::max(1, expires_in - 60);
 
@@ -86,163 +151,184 @@ std::chrono::steady_clock::time_point calculate_refresh_time(
         std::chrono::seconds(refresh_after);
 }
 
+void run_login_command(
+    const std::string& client_id
+) {
+    clear_stored_auth();
+
+    perform_browser_login(client_id);
+
+    std::cout << "Spotify login saved successfully\n";
+}
+
+void run_logout_command() {
+    clear_stored_auth();
+
+    std::cout << "Spotify login removed\n";
+}
+
+void run_dashboard(
+    const std::string& client_id
+) {
+    SpotifyTokenResponse tokens =
+        restore_or_create_login(client_id);
+
+    SpotifyClient spotify(
+        tokens.access_token
+    );
+
+    auto token_refresh_time =
+        calculate_refresh_time(
+            tokens.expires_in
+        );
+
+    const UserProfile profile =
+        spotify.get_profile();
+
+    SpotifyStats stats =
+        create_mock_stats();
+
+    stats.username =
+        profile.display_name;
+
+    stats.top_tracks =
+        spotify.get_top_tracks(5);
+
+    constexpr int api_refresh_interval = 5;
+
+    int seconds_since_api_refresh =
+        api_refresh_interval;
+
+    while (true) {
+        if (
+            std::chrono::steady_clock::now() >=
+            token_refresh_time
+        ) {
+            tokens = refresh_access_token(
+                client_id,
+                tokens.refresh_token
+            );
+
+            spotify.set_access_token(
+                tokens.access_token
+            );
+
+            save_stored_auth(
+                StoredAuth{
+                    tokens.refresh_token
+                }
+            );
+
+            token_refresh_time =
+                calculate_refresh_time(
+                    tokens.expires_in
+                );
+        }
+
+        if (
+            seconds_since_api_refresh >=
+            api_refresh_interval
+        ) {
+            stats.current_track =
+                spotify.get_current_track();
+
+            seconds_since_api_refresh = 0;
+        } else if (
+            stats.current_track.is_playing &&
+            stats.current_track.progress_seconds <
+                stats.current_track.duration_seconds
+        ) {
+            stats.current_track.progress_seconds++;
+        }
+
+        std::system("clear");
+
+        render_dashboard(stats);
+
+        std::cout
+            << "\nSpotify ID: "
+            << profile.id
+            << '\n';
+
+        std::cout
+            << "Followers: "
+            << profile.followers
+            << '\n';
+
+        std::cout
+            << "\nPress Ctrl+C to exit.\n";
+
+        std::cout.flush();
+
+        std::this_thread::sleep_for(
+            std::chrono::seconds(1)
+        );
+
+        seconds_since_api_refresh++;
+    }
+}
+
 } // namespace
 
-int main() {
+int main(int argc, char* argv[]) {
     try {
-        const char* client_id_environment =
-            std::getenv("SPOTIFY_CLIENT_ID");
-
-        if (client_id_environment == nullptr) {
-            std::cerr
-                << "SPOTIFY_CLIENT_ID is not set\n";
-
+        if (argc > 2) {
+            std::cerr << "Too many arguments\n\n";
+            print_help();
             return 1;
         }
 
+        const std::string command =
+            argc == 2 ? argv[1] : "";
+
+        if (
+            command == "--help" ||
+            command == "-h" ||
+            command == "help"
+        ) {
+            print_help();
+            return 0;
+        }
+
+        if (
+            command == "--version" ||
+            command == "-v" ||
+            command == "version"
+        ) {
+            std::cout
+                << "spotfetch "
+                << version
+                << '\n';
+
+            return 0;
+        }
+
+        if (command == "logout") {
+            run_logout_command();
+            return 0;
+        }
+
         const std::string client_id =
-            client_id_environment;
+            get_client_id();
 
-        const std::string redirect_uri =
-            "http://127.0.0.1:8888/callback";
-
-        SpotifyTokenResponse tokens;
-
-        const std::optional<StoredAuth> stored_auth =
-            load_stored_auth();
-
-        if (stored_auth.has_value()) {
-            try {
-                std::cout
-                    << "Restoring Spotify login...\n";
-
-                tokens = refresh_access_token(
-                    client_id,
-                    stored_auth->refresh_token
-                );
-
-                save_stored_auth(
-                    StoredAuth{
-                        tokens.refresh_token
-                    }
-                );
-
-                std::cout
-                    << "Spotify login restored\n";
-            } catch (const std::exception& error) {
-                std::cerr
-                    << "Saved login could not be restored: "
-                    << error.what()
-                    << '\n';
-
-                clear_stored_auth();
-
-                tokens = perform_browser_login(
-                    client_id,
-                    redirect_uri
-                );
-            }
-        } else {
-            tokens = perform_browser_login(
-                client_id,
-                redirect_uri
-            );
+        if (command == "login") {
+            run_login_command(client_id);
+            return 0;
         }
 
-        SpotifyClient spotify(
-            tokens.access_token
-        );
+        if (!command.empty()) {
+            std::cerr
+                << "Unknown command: "
+                << command
+                << "\n\n";
 
-        auto token_refresh_time =
-            calculate_refresh_time(
-                tokens.expires_in
-            );
-
-        const UserProfile profile =
-            spotify.get_profile();
-
-        SpotifyStats stats =
-            create_mock_stats();
-
-        stats.username =
-            profile.display_name;
-
-        stats.top_tracks =
-            spotify.get_top_tracks(5);
-
-        constexpr int api_refresh_interval = 5;
-
-        int seconds_since_api_refresh =
-            api_refresh_interval;
-
-        while (true) {
-            // Refresh the access token shortly before it expires.
-            if (
-                std::chrono::steady_clock::now() >=
-                token_refresh_time
-            ) {
-                tokens = refresh_access_token(
-                    client_id,
-                    tokens.refresh_token
-                );
-
-                spotify.set_access_token(
-                    tokens.access_token
-                );
-
-                save_stored_auth(
-                    StoredAuth{
-                        tokens.refresh_token
-                    }
-                );
-
-                token_refresh_time =
-                    calculate_refresh_time(
-                        tokens.expires_in
-                    );
-            }
-
-            if (
-                seconds_since_api_refresh >=
-                api_refresh_interval
-            ) {
-                stats.current_track =
-                    spotify.get_current_track();
-
-                seconds_since_api_refresh = 0;
-            } else if (
-                stats.current_track.is_playing &&
-                stats.current_track.progress_seconds <
-                    stats.current_track.duration_seconds
-            ) {
-                stats.current_track.progress_seconds++;
-            }
-
-            std::system("clear");
-
-            render_dashboard(stats);
-
-            std::cout
-                << "\nSpotify ID: "
-                << profile.id
-                << '\n';
-
-            std::cout
-                << "Followers: "
-                << profile.followers
-                << '\n';
-
-            std::cout
-                << "\nPress Ctrl+C to exit.\n";
-
-            std::cout.flush();
-
-            std::this_thread::sleep_for(
-                std::chrono::seconds(1)
-            );
-
-            seconds_since_api_refresh++;
+            print_help();
+            return 1;
         }
+
+        run_dashboard(client_id);
+
+        return 0;
     } catch (const std::exception& error) {
         std::cerr
             << "Error: "
