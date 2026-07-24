@@ -20,3 +20,9 @@ struct SpotifyStats {
     std::string username;
 };
 
+struct UserProfile {
+    std::string display_name;
+    std::string id;
+    int followers;
+};
+

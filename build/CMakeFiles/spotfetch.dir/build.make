@@ -128,12 +128,87 @@ CMakeFiles/spotfetch.dir/src/http_client.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/spotfetch.dir/src/http_client.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/angaddhaliwal/Projects/spotfetch/src/http_client.cpp -o CMakeFiles/spotfetch.dir/src/http_client.cpp.s
 
+CMakeFiles/spotfetch.dir/src/spotify_client.cpp.o: CMakeFiles/spotfetch.dir/flags.make
+CMakeFiles/spotfetch.dir/src/spotify_client.cpp.o: /Users/angaddhaliwal/Projects/spotfetch/src/spotify_client.cpp
+CMakeFiles/spotfetch.dir/src/spotify_client.cpp.o: CMakeFiles/spotfetch.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/angaddhaliwal/Projects/spotfetch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/spotfetch.dir/src/spotify_client.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/spotfetch.dir/src/spotify_client.cpp.o -MF CMakeFiles/spotfetch.dir/src/spotify_client.cpp.o.d -o CMakeFiles/spotfetch.dir/src/spotify_client.cpp.o -c /Users/angaddhaliwal/Projects/spotfetch/src/spotify_client.cpp
+
+CMakeFiles/spotfetch.dir/src/spotify_client.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/spotfetch.dir/src/spotify_client.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/angaddhaliwal/Projects/spotfetch/src/spotify_client.cpp > CMakeFiles/spotfetch.dir/src/spotify_client.cpp.i
+
+CMakeFiles/spotfetch.dir/src/spotify_client.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/spotfetch.dir/src/spotify_client.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/angaddhaliwal/Projects/spotfetch/src/spotify_client.cpp -o CMakeFiles/spotfetch.dir/src/spotify_client.cpp.s
+
+CMakeFiles/spotfetch.dir/src/pkce.cpp.o: CMakeFiles/spotfetch.dir/flags.make
+CMakeFiles/spotfetch.dir/src/pkce.cpp.o: /Users/angaddhaliwal/Projects/spotfetch/src/pkce.cpp
+CMakeFiles/spotfetch.dir/src/pkce.cpp.o: CMakeFiles/spotfetch.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/angaddhaliwal/Projects/spotfetch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/spotfetch.dir/src/pkce.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/spotfetch.dir/src/pkce.cpp.o -MF CMakeFiles/spotfetch.dir/src/pkce.cpp.o.d -o CMakeFiles/spotfetch.dir/src/pkce.cpp.o -c /Users/angaddhaliwal/Projects/spotfetch/src/pkce.cpp
+
+CMakeFiles/spotfetch.dir/src/pkce.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/spotfetch.dir/src/pkce.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/angaddhaliwal/Projects/spotfetch/src/pkce.cpp > CMakeFiles/spotfetch.dir/src/pkce.cpp.i
+
+CMakeFiles/spotfetch.dir/src/pkce.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/spotfetch.dir/src/pkce.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/angaddhaliwal/Projects/spotfetch/src/pkce.cpp -o CMakeFiles/spotfetch.dir/src/pkce.cpp.s
+
+CMakeFiles/spotfetch.dir/src/auth.cpp.o: CMakeFiles/spotfetch.dir/flags.make
+CMakeFiles/spotfetch.dir/src/auth.cpp.o: /Users/angaddhaliwal/Projects/spotfetch/src/auth.cpp
+CMakeFiles/spotfetch.dir/src/auth.cpp.o: CMakeFiles/spotfetch.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/angaddhaliwal/Projects/spotfetch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/spotfetch.dir/src/auth.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/spotfetch.dir/src/auth.cpp.o -MF CMakeFiles/spotfetch.dir/src/auth.cpp.o.d -o CMakeFiles/spotfetch.dir/src/auth.cpp.o -c /Users/angaddhaliwal/Projects/spotfetch/src/auth.cpp
+
+CMakeFiles/spotfetch.dir/src/auth.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/spotfetch.dir/src/auth.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/angaddhaliwal/Projects/spotfetch/src/auth.cpp > CMakeFiles/spotfetch.dir/src/auth.cpp.i
+
+CMakeFiles/spotfetch.dir/src/auth.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/spotfetch.dir/src/auth.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/angaddhaliwal/Projects/spotfetch/src/auth.cpp -o CMakeFiles/spotfetch.dir/src/auth.cpp.s
+
+CMakeFiles/spotfetch.dir/src/callback_server.cpp.o: CMakeFiles/spotfetch.dir/flags.make
+CMakeFiles/spotfetch.dir/src/callback_server.cpp.o: /Users/angaddhaliwal/Projects/spotfetch/src/callback_server.cpp
+CMakeFiles/spotfetch.dir/src/callback_server.cpp.o: CMakeFiles/spotfetch.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/angaddhaliwal/Projects/spotfetch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/spotfetch.dir/src/callback_server.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/spotfetch.dir/src/callback_server.cpp.o -MF CMakeFiles/spotfetch.dir/src/callback_server.cpp.o.d -o CMakeFiles/spotfetch.dir/src/callback_server.cpp.o -c /Users/angaddhaliwal/Projects/spotfetch/src/callback_server.cpp
+
+CMakeFiles/spotfetch.dir/src/callback_server.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/spotfetch.dir/src/callback_server.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/angaddhaliwal/Projects/spotfetch/src/callback_server.cpp > CMakeFiles/spotfetch.dir/src/callback_server.cpp.i
+
+CMakeFiles/spotfetch.dir/src/callback_server.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/spotfetch.dir/src/callback_server.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/angaddhaliwal/Projects/spotfetch/src/callback_server.cpp -o CMakeFiles/spotfetch.dir/src/callback_server.cpp.s
+
+CMakeFiles/spotfetch.dir/src/token_store.cpp.o: CMakeFiles/spotfetch.dir/flags.make
+CMakeFiles/spotfetch.dir/src/token_store.cpp.o: /Users/angaddhaliwal/Projects/spotfetch/src/token_store.cpp
+CMakeFiles/spotfetch.dir/src/token_store.cpp.o: CMakeFiles/spotfetch.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/angaddhaliwal/Projects/spotfetch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/spotfetch.dir/src/token_store.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/spotfetch.dir/src/token_store.cpp.o -MF CMakeFiles/spotfetch.dir/src/token_store.cpp.o.d -o CMakeFiles/spotfetch.dir/src/token_store.cpp.o -c /Users/angaddhaliwal/Projects/spotfetch/src/token_store.cpp
+
+CMakeFiles/spotfetch.dir/src/token_store.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/spotfetch.dir/src/token_store.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/angaddhaliwal/Projects/spotfetch/src/token_store.cpp > CMakeFiles/spotfetch.dir/src/token_store.cpp.i
+
+CMakeFiles/spotfetch.dir/src/token_store.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/spotfetch.dir/src/token_store.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/angaddhaliwal/Projects/spotfetch/src/token_store.cpp -o CMakeFiles/spotfetch.dir/src/token_store.cpp.s
+
 # Object files for target spotfetch
 spotfetch_OBJECTS = \
 "CMakeFiles/spotfetch.dir/src/main.cpp.o" \
 "CMakeFiles/spotfetch.dir/src/renderer.cpp.o" \
 "CMakeFiles/spotfetch.dir/src/mock_data.cpp.o" \
-"CMakeFiles/spotfetch.dir/src/http_client.cpp.o"
+"CMakeFiles/spotfetch.dir/src/http_client.cpp.o" \
+"CMakeFiles/spotfetch.dir/src/spotify_client.cpp.o" \
+"CMakeFiles/spotfetch.dir/src/pkce.cpp.o" \
+"CMakeFiles/spotfetch.dir/src/auth.cpp.o" \
+"CMakeFiles/spotfetch.dir/src/callback_server.cpp.o" \
+"CMakeFiles/spotfetch.dir/src/token_store.cpp.o"
 
 # External object files for target spotfetch
 spotfetch_EXTERNAL_OBJECTS =
@@ -142,12 +217,17 @@ spotfetch: CMakeFiles/spotfetch.dir/src/main.cpp.o
 spotfetch: CMakeFiles/spotfetch.dir/src/renderer.cpp.o
 spotfetch: CMakeFiles/spotfetch.dir/src/mock_data.cpp.o
 spotfetch: CMakeFiles/spotfetch.dir/src/http_client.cpp.o
+spotfetch: CMakeFiles/spotfetch.dir/src/spotify_client.cpp.o
+spotfetch: CMakeFiles/spotfetch.dir/src/pkce.cpp.o
+spotfetch: CMakeFiles/spotfetch.dir/src/auth.cpp.o
+spotfetch: CMakeFiles/spotfetch.dir/src/callback_server.cpp.o
+spotfetch: CMakeFiles/spotfetch.dir/src/token_store.cpp.o
 spotfetch: CMakeFiles/spotfetch.dir/build.make
 spotfetch: /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/libcurl.tbd
-spotfetch: /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/libcurl.tbd
+spotfetch: /opt/homebrew/Cellar/openssl@3/3.6.3/lib/libcrypto.dylib
 spotfetch: /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/libcurl.tbd
 spotfetch: CMakeFiles/spotfetch.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/angaddhaliwal/Projects/spotfetch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable spotfetch"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/angaddhaliwal/Projects/spotfetch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable spotfetch"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/spotfetch.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

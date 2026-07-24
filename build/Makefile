@@ -129,6 +129,54 @@ spotfetch/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/spotfetch.dir/build.make CMakeFiles/spotfetch.dir/build
 .PHONY : spotfetch/fast
 
+src/auth.o: src/auth.cpp.o
+.PHONY : src/auth.o
+
+# target to build an object file
+src/auth.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spotfetch.dir/build.make CMakeFiles/spotfetch.dir/src/auth.cpp.o
+.PHONY : src/auth.cpp.o
+
+src/auth.i: src/auth.cpp.i
+.PHONY : src/auth.i
+
+# target to preprocess a source file
+src/auth.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spotfetch.dir/build.make CMakeFiles/spotfetch.dir/src/auth.cpp.i
+.PHONY : src/auth.cpp.i
+
+src/auth.s: src/auth.cpp.s
+.PHONY : src/auth.s
+
+# target to generate assembly for a file
+src/auth.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spotfetch.dir/build.make CMakeFiles/spotfetch.dir/src/auth.cpp.s
+.PHONY : src/auth.cpp.s
+
+src/callback_server.o: src/callback_server.cpp.o
+.PHONY : src/callback_server.o
+
+# target to build an object file
+src/callback_server.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spotfetch.dir/build.make CMakeFiles/spotfetch.dir/src/callback_server.cpp.o
+.PHONY : src/callback_server.cpp.o
+
+src/callback_server.i: src/callback_server.cpp.i
+.PHONY : src/callback_server.i
+
+# target to preprocess a source file
+src/callback_server.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spotfetch.dir/build.make CMakeFiles/spotfetch.dir/src/callback_server.cpp.i
+.PHONY : src/callback_server.cpp.i
+
+src/callback_server.s: src/callback_server.cpp.s
+.PHONY : src/callback_server.s
+
+# target to generate assembly for a file
+src/callback_server.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spotfetch.dir/build.make CMakeFiles/spotfetch.dir/src/callback_server.cpp.s
+.PHONY : src/callback_server.cpp.s
+
 src/http_client.o: src/http_client.cpp.o
 .PHONY : src/http_client.o
 
@@ -201,6 +249,30 @@ src/mock_data.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/spotfetch.dir/build.make CMakeFiles/spotfetch.dir/src/mock_data.cpp.s
 .PHONY : src/mock_data.cpp.s
 
+src/pkce.o: src/pkce.cpp.o
+.PHONY : src/pkce.o
+
+# target to build an object file
+src/pkce.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spotfetch.dir/build.make CMakeFiles/spotfetch.dir/src/pkce.cpp.o
+.PHONY : src/pkce.cpp.o
+
+src/pkce.i: src/pkce.cpp.i
+.PHONY : src/pkce.i
+
+# target to preprocess a source file
+src/pkce.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spotfetch.dir/build.make CMakeFiles/spotfetch.dir/src/pkce.cpp.i
+.PHONY : src/pkce.cpp.i
+
+src/pkce.s: src/pkce.cpp.s
+.PHONY : src/pkce.s
+
+# target to generate assembly for a file
+src/pkce.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spotfetch.dir/build.make CMakeFiles/spotfetch.dir/src/pkce.cpp.s
+.PHONY : src/pkce.cpp.s
+
 src/renderer.o: src/renderer.cpp.o
 .PHONY : src/renderer.o
 
@@ -225,6 +297,54 @@ src/renderer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/spotfetch.dir/build.make CMakeFiles/spotfetch.dir/src/renderer.cpp.s
 .PHONY : src/renderer.cpp.s
 
+src/spotify_client.o: src/spotify_client.cpp.o
+.PHONY : src/spotify_client.o
+
+# target to build an object file
+src/spotify_client.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spotfetch.dir/build.make CMakeFiles/spotfetch.dir/src/spotify_client.cpp.o
+.PHONY : src/spotify_client.cpp.o
+
+src/spotify_client.i: src/spotify_client.cpp.i
+.PHONY : src/spotify_client.i
+
+# target to preprocess a source file
+src/spotify_client.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spotfetch.dir/build.make CMakeFiles/spotfetch.dir/src/spotify_client.cpp.i
+.PHONY : src/spotify_client.cpp.i
+
+src/spotify_client.s: src/spotify_client.cpp.s
+.PHONY : src/spotify_client.s
+
+# target to generate assembly for a file
+src/spotify_client.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spotfetch.dir/build.make CMakeFiles/spotfetch.dir/src/spotify_client.cpp.s
+.PHONY : src/spotify_client.cpp.s
+
+src/token_store.o: src/token_store.cpp.o
+.PHONY : src/token_store.o
+
+# target to build an object file
+src/token_store.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spotfetch.dir/build.make CMakeFiles/spotfetch.dir/src/token_store.cpp.o
+.PHONY : src/token_store.cpp.o
+
+src/token_store.i: src/token_store.cpp.i
+.PHONY : src/token_store.i
+
+# target to preprocess a source file
+src/token_store.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spotfetch.dir/build.make CMakeFiles/spotfetch.dir/src/token_store.cpp.i
+.PHONY : src/token_store.cpp.i
+
+src/token_store.s: src/token_store.cpp.s
+.PHONY : src/token_store.s
+
+# target to generate assembly for a file
+src/token_store.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spotfetch.dir/build.make CMakeFiles/spotfetch.dir/src/token_store.cpp.s
+.PHONY : src/token_store.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -234,6 +354,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... spotfetch"
+	@echo "... src/auth.o"
+	@echo "... src/auth.i"
+	@echo "... src/auth.s"
+	@echo "... src/callback_server.o"
+	@echo "... src/callback_server.i"
+	@echo "... src/callback_server.s"
 	@echo "... src/http_client.o"
 	@echo "... src/http_client.i"
 	@echo "... src/http_client.s"
@@ -243,9 +369,18 @@ help:
 	@echo "... src/mock_data.o"
 	@echo "... src/mock_data.i"
 	@echo "... src/mock_data.s"
+	@echo "... src/pkce.o"
+	@echo "... src/pkce.i"
+	@echo "... src/pkce.s"
 	@echo "... src/renderer.o"
 	@echo "... src/renderer.i"
 	@echo "... src/renderer.s"
+	@echo "... src/spotify_client.o"
+	@echo "... src/spotify_client.i"
+	@echo "... src/spotify_client.s"
+	@echo "... src/token_store.o"
+	@echo "... src/token_store.i"
+	@echo "... src/token_store.s"
 .PHONY : help
 
 

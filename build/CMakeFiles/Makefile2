@@ -85,12 +85,12 @@ clean: CMakeFiles/spotfetch.dir/clean
 CMakeFiles/spotfetch.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/spotfetch.dir/build.make CMakeFiles/spotfetch.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/spotfetch.dir/build.make CMakeFiles/spotfetch.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/angaddhaliwal/Projects/spotfetch/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target spotfetch"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/angaddhaliwal/Projects/spotfetch/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target spotfetch"
 .PHONY : CMakeFiles/spotfetch.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/spotfetch.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/angaddhaliwal/Projects/spotfetch/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/angaddhaliwal/Projects/spotfetch/build/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/spotfetch.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/angaddhaliwal/Projects/spotfetch/build/CMakeFiles 0
 .PHONY : CMakeFiles/spotfetch.dir/rule
@@ -102,7 +102,7 @@ spotfetch: CMakeFiles/spotfetch.dir/rule
 # codegen rule for target.
 CMakeFiles/spotfetch.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/spotfetch.dir/build.make CMakeFiles/spotfetch.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/angaddhaliwal/Projects/spotfetch/build/CMakeFiles --progress-num=1,2,3,4,5 "Finished codegen for target spotfetch"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/angaddhaliwal/Projects/spotfetch/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Finished codegen for target spotfetch"
 .PHONY : CMakeFiles/spotfetch.dir/codegen
 
 # clean rule for target.
