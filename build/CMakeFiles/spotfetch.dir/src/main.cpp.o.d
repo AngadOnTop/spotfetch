@@ -792,8 +792,6 @@ CMakeFiles/spotfetch.dir/src/main.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__bit/bit_width.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__bit/endian.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__bit/has_single_bit.h \
-  /Users/angaddhaliwal/Projects/spotfetch/include/mock_data.hpp \
-  /Users/angaddhaliwal/Projects/spotfetch/include/models.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/vector \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__vector/comparison.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/vector.h \
@@ -879,6 +877,8 @@ CMakeFiles/spotfetch.dir/src/main.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_fsfilcnt_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/cstdarg \
+  /Users/angaddhaliwal/Projects/spotfetch/include/mock_data.hpp \
+  /Users/angaddhaliwal/Projects/spotfetch/include/models.hpp \
   /Users/angaddhaliwal/Projects/spotfetch/include/renderer.hpp \
   /opt/homebrew/include/nlohmann/json.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/functional \
