@@ -6,6 +6,7 @@
 #include "spotify_client.hpp"
 #include "token_store.hpp"
 
+#include <algorithm>
 #include <chrono>
 #include <cstdlib>
 #include <exception>
@@ -75,6 +76,16 @@ SpotifyTokenResponse perform_browser_login(
     return tokens;
 }
 
+std::chrono::steady_clock::time_point calculate_refresh_time(
+    int expires_in
+) {
+    const int refresh_after =
+        std::max(1, expires_in - 60);
+
+    return std::chrono::steady_clock::now() +
+        std::chrono::seconds(refresh_after);
+}
+
 } // namespace
 
 int main() {
@@ -142,6 +153,11 @@ int main() {
             tokens.access_token
         );
 
+        auto token_refresh_time =
+            calculate_refresh_time(
+                tokens.expires_in
+            );
+
         const UserProfile profile =
             spotify.get_profile();
 
@@ -160,6 +176,32 @@ int main() {
             api_refresh_interval;
 
         while (true) {
+            // Refresh the access token shortly before it expires.
+            if (
+                std::chrono::steady_clock::now() >=
+                token_refresh_time
+            ) {
+                tokens = refresh_access_token(
+                    client_id,
+                    tokens.refresh_token
+                );
+
+                spotify.set_access_token(
+                    tokens.access_token
+                );
+
+                save_stored_auth(
+                    StoredAuth{
+                        tokens.refresh_token
+                    }
+                );
+
+                token_refresh_time =
+                    calculate_refresh_time(
+                        tokens.expires_in
+                    );
+            }
+
             if (
                 seconds_since_api_refresh >=
                 api_refresh_interval

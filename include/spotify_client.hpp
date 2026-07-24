@@ -14,6 +14,8 @@ public:
 
     Track get_current_track();
 
+    void set_access_token(std::string token);
+
 private:
     std::string access_token_;
 };

@@ -237,3 +237,7 @@ Track SpotifyClient::get_current_track() {
         );
     }
 }
+
+void SpotifyClient::set_access_token(std::string token) {
+    access_token_ = std::move(token);
+}
